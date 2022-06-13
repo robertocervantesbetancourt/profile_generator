@@ -1,3 +1,5 @@
+//setup readline
+
 const { resolve } = require('path');
 const readline = require('readline');
 
@@ -6,6 +8,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//list of questions to ask user
 const questions = [
   'Whats is your name? ',
   "What's an activity you like doing? ",
@@ -16,8 +19,10 @@ const questions = [
   "What is your superpower? "
 ];
 
+//array for storing question answers... for a future version combine questions and answers in an object
 const listOfAnswers = [];
 
+//recursive function that will ask each question and push the answers to the answer array.
 const questionPrompt = function (arr, step, callback){
   rl.question(arr[step], (answer) => {
     listOfAnswers.push(answer);
